@@ -1,5 +1,5 @@
 export const environment = {
-  baseUrl: 'http://localhost:3000/api',
+  baseUrl: 'https://nest-teslo-shop-backend-30bc.onrender.com/api',
   baseImageUrl:
     'https://lmujuiyquyiicjomqomi.supabase.co/storage/v1/object/public/test/products',
 };
