@@ -1,0 +1,18 @@
+<h1 class="text-3xl font-bold font-outfit">Todos los productos {{this.paginationService.currentPage()}}</h1>
+<h2 class="text-xl mb-1.5">Para todos los gustos</h2>
+@if(productsResource.isLoading()){ <div class="flex justify-center items-center h-screen">
+  <span class="loading loading-ball loading-lg"></span>
+</div>
+}
+@if (productsResource.hasValue()) {
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-5 ">
+  @for (product of productsResource.value().products; track $index) {
+  <product-card [product]="product" />
+  }
+</div>
+}
+<shared-pagination [pages]="productsResource.value()?.pages ?? 0"
+  [currentPage]="this.paginationService.currentPage()" />
+@if(productsResource.error()){
+<h1>Ha ocurrido un error</h1>
+}
