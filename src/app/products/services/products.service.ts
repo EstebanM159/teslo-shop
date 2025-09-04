@@ -35,7 +35,7 @@ export class ProductsService {
         },
       })
       .pipe(
-        tap((res) => console.log(res)),
+        // tap((res) => console.log(res)),
         tap((res) => this.productsCache.set(key, res))
       );
   }
@@ -45,7 +45,7 @@ export class ProductsService {
       return of(this.productCache.get(key)!);
     }
     return this.http.get<Product>(`${baseUrl}/products/${idSlug}`).pipe(
-      tap((res) => console.log(res)),
+      // tap((res) => console.log(res)),
       tap((res) => this.productCache.set(key, res))
     );
   }
