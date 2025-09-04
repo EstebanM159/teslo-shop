@@ -19,7 +19,8 @@ import { Navigation, Pagination } from 'swiper/modules';
   styles: `
     .swiper{
       width:100%;
-      height:500px;
+      height:auto;
+      max-height:550px;
     }
   `,
 })

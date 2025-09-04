@@ -5,13 +5,25 @@
 }
 <!-- Producto -->
 @if (productResource.hasValue()) {
-<!-- <img [src]="productResource.value().images | productImage" alt=""> -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-10">
   <product-carousel [images]="productResource.value().images " />
   <div>
     <h2 class="text-2xl font-bold font-outfit">{{productResource.value().title}}</h2>
     <div class="divider"></div>
+    <h3>Precio: <span class="text-accent font-bold text-2xl">{{productResource.value().price |
+        currency:'CAD':'symbol-narrow'
+        }}</span></h3>
+    <div class="divider"></div>
     <p>{{productResource.value().description}}</p>
+    <div class="divider"></div>
+    <div class="flex gap-4 items-center">
+      <p>Talles:</p>
+      <div class="flex items-center gap-2">
+        @for (size of productResource.value().sizes; track $index) {
+        <kbd class="kbd kbd-md">{{size}}</kbd>
+        }
+      </div>
+    </div>
   </div>
 </div>
 }
